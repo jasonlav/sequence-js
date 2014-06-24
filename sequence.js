@@ -5,10 +5,10 @@
  * Sequence does not continue until the current method triggers next item in sequence.
  */
 function Sequence(debug) {
-	if(typeof debug === "undefined") {
-		this.debug = true;
-	} else {
+	if(typeof debug === "boolean") {
 		this.debug = debug;
+	} else {
+		this.debug = true;
 	}
 
 	this.args = false;
