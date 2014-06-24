@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Sequence Example</title>
+	<style>
+		body, html {
+			margin: 10px;
+			padding: 0;
+		}
+
+		ul, li {
+			margin: 0;
+			padding: 0;
+
+		}
+
+		li {
+			list-style-type: none;
+			background-color: #6dcff6;
+		}
+
+		li.active {
+			background-color: #f68e56;
+		}
+
+		li.complete {
+			background-color: #c4df9b;
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li>Sequence 1</li>
+		<li>Sequence 2</li>
+		<li>Sequence 3</li>
+	</ul>
+<script src="sequence.js"></script>
+<script>
+
+	var queue = [
+		{
+			func: function() {
+				var that = this;
+				var el = document.querySelectorAll("ul li")[0];
+
+				el.classList.add("active");
+
+				setTimeout(function() {
+					el.classList.remove("active");
+					el.classList.add("complete");
+					that.next();
+				}, 1000);
+			},
+			title: "Sequence 1"
+		},{
+			func: function() {
+				var that = this;
+				var el = document.querySelectorAll("ul li")[1];
+
+				el.classList.add("active");
+
+				setTimeout(function() {
+					el.classList.remove("active");
+					el.classList.add("complete");
+					that.next();
+				}, 2000);
+			},
+			title: "Sequence 2"
+		},{
+			func: function() {
+				var that = this;
+				var el = document.querySelectorAll("ul li")[2];
+
+				el.classList.add("active");
+
+				setTimeout(function() {
+					el.classList.remove("active");
+					el.classList.add("complete");
+					that.next();
+				}, 500);
+			},
+			title: "Sequence 3"
+		}
+	];
+
+	var sequence = new Sequence();
+	sequence.setEvents(queue);
+	sequence.next();
+</script>
+</body>
+</html>
